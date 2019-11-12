@@ -6,7 +6,7 @@
 Moter is a motion picture terminal designed to enhance your workstation experience. For those that may spend many hours each day working in the terminal, staring at a black screen can be an isolating experience. I created motor for myself because I am one of those people and time lapse footage of outer space makes me happy. 
 
 ### Quickstart:
-1. install: `brew cask install moter`  
+1. install: `brew tap gwolf3/craft` & `brew cask install moter`  
 
 2. setup: [permissions](#permissions) (**required** or will not work properly) 
 
