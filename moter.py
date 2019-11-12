@@ -1,4 +1,3 @@
-import signal
 import psutil
 import applescript
 import subprocess
@@ -6,8 +5,6 @@ import sys
 import os
 from os import path
 import time
-from threading import Thread
-import threading
 
 commands = ['start','stop','watch']
 
@@ -34,7 +31,7 @@ else:
         vod = os.environ["MOTER_DEFAULT"]
     else:
         if command == 'start':
-            print('no default vod set, using earth sample')
+            print('MOTER_DEFAULT not found.')
         vod = 'https://github.com/gWOLF3/moter/blob/master/samples/mother-earth.mp4?raw=true'
 
 
@@ -93,10 +90,12 @@ def start():
 
 if command == 'start':
   if terminal == 'iTerm.app':
+    applescript.tell.app("Terminal",'do script ""')
     applescript.tell.app("Terminal",'activate')
+    applescript.tell.app("Terminal",'set size of window 1 to {590,140}')
     while not "Terminal" in (p.name() for p in psutil.process_iter()):
         pass
-    applescript.tell.app("Terminal",'do script "exec python /Users/glenn.wolfe/hacker-dev/moter/moter.py watch" in window 1')
+    applescript.tell.app("Terminal",'do script "exec moter watch" in window 1')
     applescript.tell.app("Terminal",'set size of window 1 to {590,140}')
     applescript.tell.app("Terminal",'set custom title of tab 1 of window 1 to "watcher"')
     applescript.tell.app("iTerm",'activate')
@@ -106,7 +105,7 @@ if command == 'start':
     term = 'Terminal'
     applescript.tell.app("iTerm",'activate')
     applescript.tell.app("iTerm",'tell current session of current window to write text ""')
-    applescript.tell.app("iTerm",'tell current session of current window to write text "python /Users/glenn.wolfe/hacker-dev/moter/moter.py start"')
+    applescript.tell.app("iTerm",'tell current session of current window to write text "moter start"')
 
 
 if command == 'stop':
@@ -117,3 +116,7 @@ if command == 'stop':
   time.sleep(0.5)
   applescript.tell.app("Terminal",'close every window whose name contains "watcher"')
 
+
+if command == 'watch':
+    time.sleep(4)
+    watch()
