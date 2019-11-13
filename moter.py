@@ -98,6 +98,7 @@ if command == 'start':
     applescript.tell.app("Terminal",'do script "exec moter watch" in window 1')
     applescript.tell.app("Terminal",'set size of window 1 to {590,140}')
     applescript.tell.app("Terminal",'set custom title of tab 1 of window 1 to "watcher"')
+    applescript.tell.app("Spectacle",'activate')
     applescript.tell.app("iTerm",'activate')
     term = 'iTerm'
     start()
