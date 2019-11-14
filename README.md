@@ -13,9 +13,6 @@ Moter is a motion picture terminal designed to enhance your workstation experien
 3. run: `moter start ` / `moter stop`  
 
 
-
-
-
 ### How should I use this?  
 
 #### Additional Commands
@@ -27,9 +24,11 @@ Get version: `moter --version`
 
 #### Customization
 
-Set a default background video: `export MOTER_DEFAULT=<path/url>` (this will play on `start`) 
+Set a new default background video: `export MOTER_DEFAULT=<path/url>` (this will play on `start`) 
 
-Experiment with new videos: `moter start <path/url>`  
+Experiment with new videos: `moter start -v <path/url>`  
+
+***(Hint: please be sure to use absolute paths & include 'http/https' scheme for urls)***
 
 Run in desktop mode (disable terminal): `moter start --desktop-only`
 

@@ -21,7 +21,7 @@ def validate_video(ctx, param, value):
         elif "http" in value:
             return value
     except ValueError:
-        raise click.BadParameter("video needs to be a valid file path or url")
+        raise click.BadParameter("video needs to be a valid file path or url. please use absolute paths.")
 
 
 def watcher():
@@ -116,9 +116,12 @@ def start(video, desktop_only):
         applescript.tell.app("iTerm", "activate")
         run(video)
     else:
-        applescript.tell.app("iTerm", "activate")
+        if "iTerm2" in (p.name() for p in psutil.process_iter()):
+            applescript.tell.app("iTerm",'create window with default profile')
+        else:
+            applescript.tell.app("iTerm", "activate")
         applescript.tell.app("iTerm", 'tell current session of current window to write text ""')
-        applescript.tell.app("iTerm", 'tell current session of current window to write text "moter start"')
+        applescript.tell.app("iTerm", f'tell current session of current window to write text "moter start -v {video}"')
 
 
 @cli.command()
