@@ -89,9 +89,11 @@ def run(video):
     applescript.tell.app("System Events", 'keystroke "f" using {command down, option down}')
     vlc(video)
     time.sleep(1.5)
+    tab_label = str(subprocess.getoutput('osascript -e \'tell application "iTerm" to get current tab of current window\'').rstrip())
     applescript.tell.app("iTerm", "set the transparency of the current session of the current window to 0.3")
     applescript.tell.app("System Events", 'keystroke "t" using {command down}')
     applescript.tell.app("System Events", 'keystroke "w" using {command down}')
+    applescript.tell.app("iTerm",f'tell {tab_label} to select')
     applescript.tell.app("System Events", 'keystroke "k" using {command down}')
     welcome()
 
