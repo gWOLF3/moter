@@ -14,13 +14,26 @@ Moter is a motion picture terminal designed to enhance your workstation experien
 
 
 
+
+
 ### How should I use this?  
+
+#### Additional Commands
+
+Get help: `moter --help` /  `moter <command> --help`
+
+Get version: `moter --version`
+
 
 #### Customization
 
 Set a default background video: `export MOTER_DEFAULT=<path/url>` (this will play on `start`) 
 
 Experiment with new videos: `moter start <path/url>`  
+
+Run in desktop mode (disable terminal): `moter start --desktop-only`
+
+Desktop mode can also be enabled by default: `export MOTER_DESKTOP_ONLY=True`
 
 #### Formats
 Motor uses VLC media player behind the scenes, so any [supported format](https://en.wikipedia.org/wiki/VLC_media_player#Input_formats) will work here too. You can even use a URL (youtube,etc). I also included a couple samples to get you started. 
