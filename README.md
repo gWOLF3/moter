@@ -42,10 +42,11 @@ Motor uses VLC media player behind the scenes, so any [supported format](https:/
 
 Moter requires accessibily access of the following:
 
-- Terminal
-- iTerm
-- Spectacle
-- System Events
+- Terminal _(/Application/Terminal.app)_
+- iTerm _(/Application/iTerm.app)_
+- Spectacle _(/Applications/Spectacle.app)_
+- System Events _(/System/Library/CoreServices/System\ Events.app)_
 
 <img src="./assets/instr-320.gif" alt="instr.gif" style="width:210px;height:160px"/> 
 
+***(Hint: if you cannot find any items here, you may need to search and add them with the `+` button)***
